@@ -1,0 +1,92 @@
+/* General */
+body {
+    background-color: #111; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    font-family: 'Verdana', sans-serif;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    background: url('../assets/img/greedIslandBookGif.gif') center/cover no-repeat; /* Fondo con gif */
+    height: 100vh; /* Altura de toda la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Color del texto */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra del texto */
+  }
+  
+.hero-title {
+    font-family: 'Cinzel', serif; /* Fuente elegante */
+    font-size: 3rem; /* Tamaño del título */
+    font-weight: bold;
+    color: #00ff88; /* Color mágico */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6), 0 0 15px #00ccee; /* Efecto mágico */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-family: 'Poppins', sans-serif; /* Fuente secundaria */
+    font-size: 1.5rem; /* Tamaño mediano */
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra ligera */
+    text-align: center;
+    margin-bottom: 40px;
+}
+.hero {
+    height: 80vh; /* Altura de la sección */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.8); /* Sombra del texto */
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: #00ff88; /* Color principal */
+}
+
+.hero p {
+    margin: 15px 0;
+    font-size: 1.2rem;
+}
+
+  /* Botón principal */
+  .btn-primary {
+    background: linear-gradient(45deg, #00ff88, #00ccee); /* Gradiente */
+    border: none; /* Sin borde */
+    color: #111; /* Texto oscuro */
+    padding: 0.8rem 1.5rem; /* Espaciado interno */
+    font-size: 1.2rem;
+    transition: transform 0.2s ease-in-out; /* Transición */
+  }
+  
+  .btn-primary:hover {
+    transform: scale(1.1); /* Efecto hover */
+    background: linear-gradient(45deg, #00ccee, #00ff88); /* Cambia gradiente */
+  }
+  
+  .btn-primary:active {
+    transform: scale(1.05); /* Efecto al presionar */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
+  }
+  
+
+/* Contenido Principal */
+  .main-container {
+    margin: 200px 0; /* Ajusta el valor según tus necesidades */
+  }
+
+  /* Footer */
+  footer {
+    background-color: #000; /* Fondo oscuro */
+    color: #888; /* Texto gris */
+    font-size: 0.9rem; /* Tamaño pequeño */
+    text-align: center; /* Centrado */
+    padding: 10px 0; /* Espaciado */
+  }
+  
