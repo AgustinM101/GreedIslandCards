@@ -7,7 +7,7 @@ body {
   
   /* Hero Section */
   .hero-section {
-    background: url('../assets/img/greedIslandBookGif.gif') center/cover no-repeat; /* Fondo con gif */
+    background: url('../assets/img/bookSharp50.gif') center/cover no-repeat; /* Fondo con gif */
     height: 100vh; /* Altura de toda la pantalla */
     display: flex;
     flex-direction: column;
@@ -16,7 +16,7 @@ body {
     color: white; /* Color del texto */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra del texto */
   }
-  
+
 .hero-title {
     font-family: 'Cinzel', serif; /* Fuente elegante */
     font-size: 3rem; /* Tamaño del título */
@@ -28,13 +28,14 @@ body {
 }
 
 .hero-subtitle {
-    font-family: 'Poppins', sans-serif; /* Fuente secundaria */
-    font-size: 1.5rem; /* Tamaño mediano */
-    color: #ffffff;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra ligera */
-    text-align: center;
-    margin-bottom: 40px;
+  font-family: 'Poppins', sans-serif; /* Fuente secundaria */
+  font-size: 1.5rem; /* Tamaño mediano */
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra ligera */
+  text-align: center;
+  margin-bottom: 40px;
 }
+
 .hero {
     height: 80vh; /* Altura de la sección */
     display: flex;
@@ -90,3 +91,24 @@ body {
     padding: 10px 0; /* Espaciado */
   }
   
+/* Pantalla de carga */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  visibility: hidden; /* Oculto por defecto */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.loading-screen img {
+  max-width: 300px;
+  border-radius: 10px;
+}
