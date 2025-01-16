@@ -12,3 +12,4 @@ ingresarBtn.addEventListener('click', function () {
     window.location.href = 'tienda.html';
   }, 5300); // 5,3 segundos de espera 
 });
+
