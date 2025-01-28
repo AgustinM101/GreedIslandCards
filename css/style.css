@@ -133,9 +133,19 @@ body {
 
 .card-title {
   font-weight: bold;
-  font-size: 1.2rem;
+  color: #000000; /* Color negro para el título */
 }
 
 .card-text {
   color: #000000; /* Color negro para la descripción */
+}
+
+.card-price {
+  font-weight: bold;
+  color: #000000; /* Color negro para el precio */
+}
+
+.carrito-item {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
 }

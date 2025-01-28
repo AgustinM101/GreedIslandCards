@@ -1,44 +1,70 @@
 // Lista de cartas de Greed Island
 const cartas = [
-    { nombre: 'Accompany', descripcion: 'Teletransporta a un jugador.', imagen: './assets/img/accompanyCard.webp' },
-    { nombre: 'Blue Planet', descripcion: 'Una gema preciosa.', imagen: './assets/img/bluePlanetCard.webp' },
-    { nombre: 'Angel’s Breath', descripcion: 'Cura cualquier herida.', imagen: './assets/img/angelsBreathCard.webp' },
-    { nombre: 'Patch of Forest', descripcion: 'Convierte el desierto en un bosque.', imagen: './assets/img/patchOfForestCardwebp.webp' },
-    { nombre: 'Breath of Archangel', descripcion: 'Revivir a alguien recientemente fallecido.', imagen: './assets/img/breathOfArchangelCard.webp' },
-    { nombre: 'Paladin’s Necklace', descripcion: 'Protege al usuario de maldiciones y hechizos oscuros.', imagen: './assets/img/paladinsNecklaceCard.webp' },
-    { nombre: 'Risky Dice', descripcion: 'Un dado con gran riesgo y recompensa.', imagen: './assets/img/riskyDiceCard.webp' },
-    { nombre: 'Lucky Alexandrite', descripcion: 'Gema que mejora la suerte del usuario.', imagen: './assets/img/luckyAlexandriteCard.webp' },
-    { nombre: 'Teleport', descripcion: 'Teletransporta al usuario a cualquier lugar.', imagen: './assets/img/teleportCard.webp' },
-    { nombre: 'Clone', descripcion: 'Duplica cualquier objeto o carta.', imagen: './assets/img/cloneCard.webp' }
-  ];
-  
-  
-  // Contenedor de las cartas
-  const cardsContainer = document.getElementById('cards-container');
-  
-  // Función para generar las cartas
-  function mostrarCartas() {
+    { nombre: 'Accompany', descripcion: 'Teletransporta a un jugador.', imagen: './assets/img/accompanyCard.webp', precio: 100 },
+    { nombre: 'Blue Planet', descripcion: 'Una gema preciosa.', imagen: './assets/img/bluePlanetCard.webp', precio: 200 },
+    { nombre: 'Angel’s Breath', descripcion: 'Cura cualquier herida.', imagen: './assets/img/angelsBreathCard.webp', precio: 150 },
+    { nombre: 'Patch of Forest', descripcion: 'Convierte el desierto en un bosque.', imagen: './assets/img/patchOfForestCardwebp.webp', precio: 120 },
+    { nombre: 'Breath of Archangel', descripcion: 'Revivir a alguien recientemente fallecido.', imagen: './assets/img/angelsBreathCard.webp', precio: 300 },
+    { nombre: 'Paladin’s Necklace', descripcion: 'Protege al usuario de maldiciones y hechizos oscuros.', imagen: './assets/img/paladinsNecklaceCard.webp', precio: 250 },
+    { nombre: 'Risky Dice', descripcion: 'Un dado con gran riesgo y recompensa.', imagen: './assets/img/riskyDiceCard.webp', precio: 80 },
+    { nombre: 'Lucky Alexandrite', descripcion: 'Gema que mejora la suerte del usuario.', imagen: './assets/img/luckyAlexandriteCard.webp', precio: 220 },
+    { nombre: 'Teleport', descripcion: 'Teletransporta al usuario a cualquier lugar.', imagen: './assets/img/teleportCard.webp', precio: 180 },
+    { nombre: 'Clone', descripcion: 'Duplica cualquier objeto o carta.', imagen: './assets/img/cloneCard.webp', precio: 200 }
+];
+
+// Contenedor de las cartas
+const cardsContainer = document.getElementById('cards-container');
+const carrito = [];
+
+// Función para generar las cartas
+function mostrarCartas() {
     cartas.forEach((carta) => {
-      // Crear columna
-      const col = document.createElement('div');
-      col.classList.add('col-12', 'col-sm-6', 'col-md-4', 'col-lg-3');
-  
-      // Crear carta
-      col.innerHTML = `
-        <div class="card h-100">
-          <img src="${carta.imagen}" class="card-img-top" alt="${carta.nombre}">
-          <div class="card-body">
-            <h5 class="card-title">${carta.nombre}</h5>
-            <p class="card-text">${carta.descripcion}</p>
-          </div>
-        </div>
-      `;
-      
-      // Añadir carta al contenedor
-      cardsContainer.appendChild(col);
+        // Crear columna
+        const col = document.createElement('div');
+        col.classList.add('col-12', 'col-sm-6', 'col-md-4', 'col-lg-3');
+
+        // Crear carta
+        col.innerHTML = `
+            <div class="card h-100">
+                <img src="${carta.imagen}" class="card-img-top" alt="${carta.nombre}">
+                <div class="card-body">
+                    <h5 class="card-title">${carta.nombre}</h5>
+                    <p class="card-text">${carta.descripcion}</p>
+                    <p class="card-price">$${carta.precio}</p>
+                    <button class="btn btn-primary comprar-btn" data-nombre="${carta.nombre}">Comprar</button>
+                </div>
+            </div>
+        `;
+
+        // Añadir carta al contenedor
+        cardsContainer.appendChild(col);
     });
-  }
-  
-  // Mostrar las cartas en la tienda
-  mostrarCartas();
-  
+
+    // Añadir evento a los botones de compra
+    const botonesComprar = document.querySelectorAll('.comprar-btn');
+    botonesComprar.forEach((boton) => {
+        boton.addEventListener('click', (e) => {
+            const nombreCarta = e.target.getAttribute('data-nombre');
+            const cartaComprada = cartas.find(carta => carta.nombre === nombreCarta);
+            carrito.push(cartaComprada);
+            mostrarCarrito();
+        });
+    });
+}
+
+// Función para mostrar el carrito
+function mostrarCarrito() {
+    const carritoContainer = document.getElementById('carrito-container');
+    carritoContainer.innerHTML = '';
+    carrito.forEach((carta) => {
+        const item = document.createElement('div');
+        item.classList.add('carrito-item');
+        item.innerHTML = `
+            <p>${carta.nombre} - $${carta.precio}</p>
+        `;
+        carritoContainer.appendChild(item);
+    });
+}
+
+// Mostrar las cartas en la tienda
+mostrarCartas();
