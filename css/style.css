@@ -146,8 +146,24 @@ body {
 }
 
 .carrito-item {
-  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px 0;
+  border-bottom: 1px solid #444;
+}
+
+.eliminar-btn {
+  background-color: #dc3545; /* Color rojo */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.eliminar-btn:hover {
+  background-color: #c82333; /* Color rojo más oscuro al pasar el ratón */
 }
 
 #carrito-container {

@@ -56,11 +56,11 @@ function mostrarCartas() {
 function mostrarCarrito() {
     const carritoContainer = document.getElementById('carrito-container');
     carritoContainer.innerHTML = '';
-    carrito.forEach((carta) => {
+    carrito.forEach((carta, index) => {
         const item = document.createElement('div');
         item.classList.add('carrito-item');
         item.innerHTML = `
-            <p>${carta.nombre} - $${carta.precio}</p>
+            <p>${carta.nombre} - $${carta.precio} <button class="btn btn-danger btn-sm eliminar-btn" data-index="${index}">X</button></p>
         `;
         carritoContainer.appendChild(item);
     });
@@ -73,6 +73,16 @@ function mostrarCarrito() {
         finalizarCompraBtn.addEventListener('click', finalizarCompra);
         carritoContainer.appendChild(finalizarCompraBtn);
     }
+
+    // Añadir evento a los botones de eliminar
+    const botonesEliminar = document.querySelectorAll('.eliminar-btn');
+    botonesEliminar.forEach((boton) => {
+        boton.addEventListener('click', (e) => {
+            const index = e.target.getAttribute('data-index');
+            carrito.splice(index, 1);
+            mostrarCarrito();
+        });
+    });
 }
 
 // Función para finalizar la compra
