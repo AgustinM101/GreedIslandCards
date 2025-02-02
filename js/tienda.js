@@ -8,7 +8,7 @@ const cartas = [
     { nombre: 'Paladin’s Necklace', descripcion: 'Protege al usuario de maldiciones y hechizos oscuros.', imagen: './assets/img/paladinsNecklaceCard.webp', precio: 250 },
     { nombre: 'Risky Dice', descripcion: 'Un dado con gran riesgo y recompensa.', imagen: './assets/img/riskyDiceCard.webp', precio: 80 },
     { nombre: 'Lucky Alexandrite', descripcion: 'Gema que mejora la suerte del usuario.', imagen: './assets/img/luckyAlexandriteCard.webp', precio: 220 },
-    { nombre: 'Leave', descripcion: 'Te permite abandonar Greed Island sin penalizaciones.', imagen: './assets/img/leaveCard.webp', precio: 180 }, // cambie de carta porque no habia imagen de la de teleport
+    { nombre: 'Leave', descripcion: 'Te permite abandonar Greed Island sin penalizaciones.', imagen: './assets/img/leaveCard.webp', precio: 180 },
     { nombre: 'Clone', descripcion: 'Duplica cualquier objeto o carta.', imagen: './assets/img/cloneCard.webp', precio: 200 }
 ];
 
@@ -57,7 +57,6 @@ function mostrarCarrito() {
     const carritoContainer = document.getElementById('carrito-container');
     carritoContainer.innerHTML = '';
     carrito.forEach((carta) => {
-
         const item = document.createElement('div');
         item.classList.add('carrito-item');
         item.innerHTML = `
@@ -66,14 +65,12 @@ function mostrarCarrito() {
         carritoContainer.appendChild(item);
     });
 
-    // añadir boton de finalizar compra solo si hay elementos en el carrito
+    // Añadir botón de finalizar compra solo si hay elementos en el carrito
     if (carrito.length > 0) {
         const finalizarCompraBtn = document.createElement('button');
-
         finalizarCompraBtn.classList.add('btn', 'btn-success', 'mt-3');
         finalizarCompraBtn.textContent = 'Finalizar Compra';
         finalizarCompraBtn.addEventListener('click', finalizarCompra);
-
         carritoContainer.appendChild(finalizarCompraBtn);
     }
 }
@@ -104,3 +101,10 @@ function finalizarCompra() {
 
 // Mostrar las cartas en la tienda
 mostrarCartas();
+
+// Función para mostrar/ocultar el carrito
+const toggleCarritoBtn = document.getElementById('toggle-carrito-btn');
+toggleCarritoBtn.addEventListener('click', () => {
+    const carritoContainer = document.getElementById('carrito-container');
+    carritoContainer.classList.toggle('visible');
+});
